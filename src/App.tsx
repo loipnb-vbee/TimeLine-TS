@@ -3,7 +3,7 @@ import { TimeArea } from "./components/timeArea";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="timeline-editor">
       <TimeArea />
     </div>
   );

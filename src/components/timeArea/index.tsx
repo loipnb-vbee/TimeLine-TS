@@ -16,8 +16,8 @@ export const TimeArea = () => {
   return (
     <div className="time-area">
       <Grid
-        columnCount={10}
-        columnWidth={500}
+        columnCount={100}
+        columnWidth={30}
         rowCount={1}
         rowHeight={50}
         width={1000}
