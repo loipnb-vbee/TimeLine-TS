@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, GridCellRenderer } from "react-virtualized";
+import { Grid, GridCellRenderer, AutoSizer } from "react-virtualized";
 import "./style.scss";
 
 export const TimeArea = () => {
@@ -15,17 +15,23 @@ export const TimeArea = () => {
 
   return (
     <div className="time-area">
-      <Grid
-        columnCount={100}
-        columnWidth={30}
-        rowCount={1}
-        rowHeight={50}
-        width={1000}
-        height={50}
-        overscanRowCount={0} // tranhs truowng hop ko load kip khi scroll
-        overscanColumnCount={10} // giam thieu truowng hop khong load kip cac item khi keo sang trai
-        cellRenderer={cellRenderer}
-      />
+      <AutoSizer>
+        {({ width, height }) => {
+          return (
+            <Grid
+              columnCount={100}
+              columnWidth={30}
+              rowCount={1}
+              rowHeight={height}
+              width={width+200}
+              height={height}
+              overscanRowCount={0} // tranhs truowng hop ko load kip khi scroll
+              overscanColumnCount={10} // giam thieu truowng hop khong load kip cac item khi keo sang trai
+              cellRenderer={cellRenderer}
+            />
+          );
+        }}
+      </AutoSizer>
     </div>
   );
 };
